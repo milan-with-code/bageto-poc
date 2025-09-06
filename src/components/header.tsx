@@ -1,98 +1,61 @@
-import { Calculator, Calendar, Search, Smile } from "lucide-react"
-import Logo from '../assets/logo.png';
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "@/components/ui/command";
+import { Search } from "lucide-react"
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import NavItem from "@/components/nav-item";
+
+const labelCSS = "text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors hover:underline cursor-pointer"
 
 export function Header() {
     const [open, setOpen] = useState(false)
     return (
-        <>
-            <nav className="max-w-[1440px] mx-auto px-5 pt-5 border-b border-gray-200 bg-white">
-                <div className="flex items-center justify-between h-16">
-                    <div className="hidden md:flex items-center space-x-8">
-                        <a
-                            href="#"
-                            className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors"
-                        >
-                            MEN
-                        </a>
-                        <a
-                            href="#"
-                            className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors"
-                        >
-                            WOMEN
-                        </a>
-                        <a
-                            href="#"
-                            className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors"
-                        >
+        <nav className="max-w-[1440px] mx-auto px-5 pt-5">
+            <div className="flex items-center justify-between h-16">
+                <div className="hidden md:flex items-center space-x-8">
+                    <NavItem label="MEN" submenu={["Briefcases & Day Bags", "Travel Bags", "Accessories", "Backpacks", "Totes", "Bridle Leather", "Pet Accessories"]} />
+                    <NavItem label="WOMEN" submenu={["Handbags", "Totes", "Accessories", "Travel & Business", "Backpacks", "Pet Accessories"]} />
+                    <div className="relative group">
+                        <a className={labelCSS}>
                             AMERICAN ALLIGATOR
                         </a>
+                    </div>
+                    <div className="relative group">
                         <a
                             href="#"
-                            className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors"
+                            className={labelCSS}
                         >
                             ONE-OF-A-KIND
                         </a>
                     </div>
+                </div>
 
-                    <Link to="/">
-                        <img src={Logo} alt="Logo" className="h-10 w-auto" />
-                    </Link>
+                <Link to="/">
+                    <div className="text-xl font-bold text-gray-900 tracking-wider">LOTUFF</div>
+                </Link>
 
-                    <div className="hidden md:flex items-center space-x-6">
+                <div className="hidden md:flex items-center space-x-6">
+                    <div className="relative group">
                         <a
                             href="#"
-                            className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors"
+                            className={labelCSS}
                         >
                             CART (0)
                         </a>
+                    </div>
+                    <NavItem label="ACCOUNT" submenu={["Log In", "Create an Account", "Register Bag"]} />
+                    <NavItem label="ABOUT" submenu={["Our Story", "Our Leather", "FAQ", "Press", "Testimonials", "Lookbooks & Video", "Stockists", "Visit Us", "Contact"]} />
+                    <div className="relative group">
                         <a
                             href="#"
-                            className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors"
-                        >
-                            ACCOUNT
-                        </a>
-                        <a
-                            href="#"
-                            className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors"
-                        >
-                            ABOUT
-                        </a>
-                        <a
-                            href="#"
-                            className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors"
+                            className={labelCSS}
                         >
                             BLOG
                         </a>
-                        <button className="text-gray-900 hover:text-gray-700 transition-colors cursor-pointer">
-                            <Search className="h-4 w-4" onClick={() => setOpen(!open)} />
-                        </button>
                     </div>
+                    <button className="text-gray-900 hover:text-gray-700 transition-colors cursor-pointer">
+                        <Search className="h-4 w-4" onClick={() => setOpen(!open)} />
+                    </button>
                 </div>
-            </nav>
-            <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput placeholder="Type a command or search..." />
-                <CommandList>
-                    <CommandEmpty>No results found.</CommandEmpty>
-                    <CommandGroup heading="Suggestions">
-                        <CommandItem>
-                            <Calendar />
-                            <span>Calendar</span>
-                        </CommandItem>
-                        <CommandItem>
-                            <Smile />
-                            <span>Search Emoji</span>
-                        </CommandItem>
-                        <CommandItem>
-                            <Calculator />
-                            <span>Calculator</span>
-                        </CommandItem>
-                    </CommandGroup>
-                    <CommandSeparator />
-                </CommandList>
-            </CommandDialog>
-        </>
+            </div>
+        </nav>
     )
 }
