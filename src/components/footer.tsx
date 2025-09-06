@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { Link } from "@tanstack/react-router"
 import { Facebook, Instagram, Twitter } from "lucide-react"
 
 const Footer = () => {
@@ -8,58 +9,49 @@ const Footer = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 pb-16">
                     <div className="lg:col-span-3">
                         <nav className="space-y-4">
-                            <a
-                                href="#"
+                            <Link
+                                to="/pages/contact"
                                 className="block text-sm font-medium text-foreground hover:text-accent transition-colors duration-200 tracking-wide"
                             >
                                 CONTACT
-                            </a>
-                            <a
-                                href="#"
+                            </Link>
+                            <Link
+                                to="/about"
                                 className="block text-sm font-medium text-foreground hover:text-accent transition-colors duration-200 tracking-wide"
                             >
                                 ABOUT
-                            </a>
-                            <a
-                                href="#"
+                            </Link>
+                            <Link
+                                to="/pages/stockists"
                                 className="block text-sm font-medium text-foreground hover:text-accent transition-colors duration-200 tracking-wide"
                             >
                                 STOCKISTS
-                            </a>
-                            <a
-                                href="#"
+                            </Link>
+                            <Link
+                                to="/pages/terms-and-conditions"
                                 className="block text-sm font-medium text-foreground hover:text-accent transition-colors duration-200 tracking-wide"
                             >
                                 TERMS & CONDITIONS
-                            </a>
-                            <a
-                                href="#"
+                            </Link>
+                            <Link
+                                to="/pages/customer-service"
                                 className="block text-sm font-medium text-foreground hover:text-accent transition-colors duration-200 tracking-wide"
                             >
                                 CUSTOMER SERVICE
-                            </a>
-                            <a
-                                href="#"
-                                className="block text-sm font-medium text-foreground hover:text-accent transition-colors duration-200 tracking-wide"
-                            >
-                                SITEMAP
-                            </a>
+                            </Link>
                         </nav>
                     </div>
 
-                    {/* Brand Logo - Center */}
                     <div className="lg:col-span-6 flex flex-col items-center justify-center text-center">
                         <div className="mb-6">
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-[0.2em] mb-2">
                                 BAGETO
                             </h2>
-                            <p className="text-xs text-muted-foreground tracking-[0.3em] font-medium">HANDMADE IN AMERICA</p>
+                            <p className="text-xs text-muted-foreground tracking-[0.3em] font-medium">HANDMADE IN INDIA</p>
                         </div>
 
-                        {/* Decorative Element */}
                         <div className="w-24 h-px bg-border mb-6"></div>
 
-                        {/* Social Media Icons */}
                         <div className="flex items-center gap-6">
                             <a
                                 href="#"
@@ -94,7 +86,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Contact Information - Right Side */}
                     <div className="lg:col-span-3 text-center lg:text-right">
                         <div className="space-y-4">
                             <Button

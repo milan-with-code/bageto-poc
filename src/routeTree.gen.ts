@@ -12,10 +12,22 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as MainRouteImport } from './routes/_main'
 import { Route as AuthRouteImport } from './routes/_auth'
 import { Route as MainIndexRouteImport } from './routes/_main/index'
+import { Route as MainCartRouteImport } from './routes/_main/cart'
 import { Route as MainAboutRouteImport } from './routes/_main/about'
 import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
+import { Route as MainPagesVisitUsRouteImport } from './routes/_main/pages/visit-us'
+import { Route as MainPagesTestimonialsRouteImport } from './routes/_main/pages/testimonials'
+import { Route as MainPagesTermsAndConditionsRouteImport } from './routes/_main/pages/terms-and-conditions'
+import { Route as MainPagesStockistsRouteImport } from './routes/_main/pages/stockists'
+import { Route as MainPagesOurStoryRouteImport } from './routes/_main/pages/our-story'
+import { Route as MainPagesFaqRouteImport } from './routes/_main/pages/faq'
+import { Route as MainPagesCustomerServiceRouteImport } from './routes/_main/pages/customer-service'
+import { Route as MainPagesContactRouteImport } from './routes/_main/pages/contact'
+import { Route as MainPagesAboutOurLeatherRouteImport } from './routes/_main/pages/about-our-leather'
 import { Route as MainCollectionsCollectionsNameRouteImport } from './routes/_main/collections/$collectionsName'
+import { Route as MainBlogsPressRouteImport } from './routes/_main/blogs/press'
+import { Route as MainBlogsLookbooksRouteImport } from './routes/_main/blogs/lookbooks'
 
 const MainRoute = MainRouteImport.update({
   id: '/_main',
@@ -28,6 +40,11 @@ const AuthRoute = AuthRouteImport.update({
 const MainIndexRoute = MainIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainCartRoute = MainCartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
   getParentRoute: () => MainRoute,
 } as any)
 const MainAboutRoute = MainAboutRouteImport.update({
@@ -45,26 +62,108 @@ const AuthLoginRoute = AuthLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => AuthRoute,
 } as any)
+const MainPagesVisitUsRoute = MainPagesVisitUsRouteImport.update({
+  id: '/pages/visit-us',
+  path: '/pages/visit-us',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainPagesTestimonialsRoute = MainPagesTestimonialsRouteImport.update({
+  id: '/pages/testimonials',
+  path: '/pages/testimonials',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainPagesTermsAndConditionsRoute =
+  MainPagesTermsAndConditionsRouteImport.update({
+    id: '/pages/terms-and-conditions',
+    path: '/pages/terms-and-conditions',
+    getParentRoute: () => MainRoute,
+  } as any)
+const MainPagesStockistsRoute = MainPagesStockistsRouteImport.update({
+  id: '/pages/stockists',
+  path: '/pages/stockists',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainPagesOurStoryRoute = MainPagesOurStoryRouteImport.update({
+  id: '/pages/our-story',
+  path: '/pages/our-story',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainPagesFaqRoute = MainPagesFaqRouteImport.update({
+  id: '/pages/faq',
+  path: '/pages/faq',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainPagesCustomerServiceRoute =
+  MainPagesCustomerServiceRouteImport.update({
+    id: '/pages/customer-service',
+    path: '/pages/customer-service',
+    getParentRoute: () => MainRoute,
+  } as any)
+const MainPagesContactRoute = MainPagesContactRouteImport.update({
+  id: '/pages/contact',
+  path: '/pages/contact',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainPagesAboutOurLeatherRoute =
+  MainPagesAboutOurLeatherRouteImport.update({
+    id: '/pages/about-our-leather',
+    path: '/pages/about-our-leather',
+    getParentRoute: () => MainRoute,
+  } as any)
 const MainCollectionsCollectionsNameRoute =
   MainCollectionsCollectionsNameRouteImport.update({
     id: '/collections/$collectionsName',
     path: '/collections/$collectionsName',
     getParentRoute: () => MainRoute,
   } as any)
+const MainBlogsPressRoute = MainBlogsPressRouteImport.update({
+  id: '/blogs/press',
+  path: '/blogs/press',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBlogsLookbooksRoute = MainBlogsLookbooksRouteImport.update({
+  id: '/blogs/lookbooks',
+  path: '/blogs/lookbooks',
+  getParentRoute: () => MainRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
   '/about': typeof MainAboutRoute
+  '/cart': typeof MainCartRoute
   '/': typeof MainIndexRoute
+  '/blogs/lookbooks': typeof MainBlogsLookbooksRoute
+  '/blogs/press': typeof MainBlogsPressRoute
   '/collections/$collectionsName': typeof MainCollectionsCollectionsNameRoute
+  '/pages/about-our-leather': typeof MainPagesAboutOurLeatherRoute
+  '/pages/contact': typeof MainPagesContactRoute
+  '/pages/customer-service': typeof MainPagesCustomerServiceRoute
+  '/pages/faq': typeof MainPagesFaqRoute
+  '/pages/our-story': typeof MainPagesOurStoryRoute
+  '/pages/stockists': typeof MainPagesStockistsRoute
+  '/pages/terms-and-conditions': typeof MainPagesTermsAndConditionsRoute
+  '/pages/testimonials': typeof MainPagesTestimonialsRoute
+  '/pages/visit-us': typeof MainPagesVisitUsRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
   '/about': typeof MainAboutRoute
+  '/cart': typeof MainCartRoute
   '/': typeof MainIndexRoute
+  '/blogs/lookbooks': typeof MainBlogsLookbooksRoute
+  '/blogs/press': typeof MainBlogsPressRoute
   '/collections/$collectionsName': typeof MainCollectionsCollectionsNameRoute
+  '/pages/about-our-leather': typeof MainPagesAboutOurLeatherRoute
+  '/pages/contact': typeof MainPagesContactRoute
+  '/pages/customer-service': typeof MainPagesCustomerServiceRoute
+  '/pages/faq': typeof MainPagesFaqRoute
+  '/pages/our-story': typeof MainPagesOurStoryRoute
+  '/pages/stockists': typeof MainPagesStockistsRoute
+  '/pages/terms-and-conditions': typeof MainPagesTermsAndConditionsRoute
+  '/pages/testimonials': typeof MainPagesTestimonialsRoute
+  '/pages/visit-us': typeof MainPagesVisitUsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -73,8 +172,20 @@ export interface FileRoutesById {
   '/_auth/login': typeof AuthLoginRoute
   '/_auth/register': typeof AuthRegisterRoute
   '/_main/about': typeof MainAboutRoute
+  '/_main/cart': typeof MainCartRoute
   '/_main/': typeof MainIndexRoute
+  '/_main/blogs/lookbooks': typeof MainBlogsLookbooksRoute
+  '/_main/blogs/press': typeof MainBlogsPressRoute
   '/_main/collections/$collectionsName': typeof MainCollectionsCollectionsNameRoute
+  '/_main/pages/about-our-leather': typeof MainPagesAboutOurLeatherRoute
+  '/_main/pages/contact': typeof MainPagesContactRoute
+  '/_main/pages/customer-service': typeof MainPagesCustomerServiceRoute
+  '/_main/pages/faq': typeof MainPagesFaqRoute
+  '/_main/pages/our-story': typeof MainPagesOurStoryRoute
+  '/_main/pages/stockists': typeof MainPagesStockistsRoute
+  '/_main/pages/terms-and-conditions': typeof MainPagesTermsAndConditionsRoute
+  '/_main/pages/testimonials': typeof MainPagesTestimonialsRoute
+  '/_main/pages/visit-us': typeof MainPagesVisitUsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -82,10 +193,39 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/about'
+    | '/cart'
     | '/'
+    | '/blogs/lookbooks'
+    | '/blogs/press'
     | '/collections/$collectionsName'
+    | '/pages/about-our-leather'
+    | '/pages/contact'
+    | '/pages/customer-service'
+    | '/pages/faq'
+    | '/pages/our-story'
+    | '/pages/stockists'
+    | '/pages/terms-and-conditions'
+    | '/pages/testimonials'
+    | '/pages/visit-us'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/register' | '/about' | '/' | '/collections/$collectionsName'
+  to:
+    | '/login'
+    | '/register'
+    | '/about'
+    | '/cart'
+    | '/'
+    | '/blogs/lookbooks'
+    | '/blogs/press'
+    | '/collections/$collectionsName'
+    | '/pages/about-our-leather'
+    | '/pages/contact'
+    | '/pages/customer-service'
+    | '/pages/faq'
+    | '/pages/our-story'
+    | '/pages/stockists'
+    | '/pages/terms-and-conditions'
+    | '/pages/testimonials'
+    | '/pages/visit-us'
   id:
     | '__root__'
     | '/_auth'
@@ -93,8 +233,20 @@ export interface FileRouteTypes {
     | '/_auth/login'
     | '/_auth/register'
     | '/_main/about'
+    | '/_main/cart'
     | '/_main/'
+    | '/_main/blogs/lookbooks'
+    | '/_main/blogs/press'
     | '/_main/collections/$collectionsName'
+    | '/_main/pages/about-our-leather'
+    | '/_main/pages/contact'
+    | '/_main/pages/customer-service'
+    | '/_main/pages/faq'
+    | '/_main/pages/our-story'
+    | '/_main/pages/stockists'
+    | '/_main/pages/terms-and-conditions'
+    | '/_main/pages/testimonials'
+    | '/_main/pages/visit-us'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -125,6 +277,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainIndexRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/cart': {
+      id: '/_main/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof MainCartRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/about': {
       id: '/_main/about'
       path: '/about'
@@ -146,11 +305,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthLoginRouteImport
       parentRoute: typeof AuthRoute
     }
+    '/_main/pages/visit-us': {
+      id: '/_main/pages/visit-us'
+      path: '/pages/visit-us'
+      fullPath: '/pages/visit-us'
+      preLoaderRoute: typeof MainPagesVisitUsRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/pages/testimonials': {
+      id: '/_main/pages/testimonials'
+      path: '/pages/testimonials'
+      fullPath: '/pages/testimonials'
+      preLoaderRoute: typeof MainPagesTestimonialsRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/pages/terms-and-conditions': {
+      id: '/_main/pages/terms-and-conditions'
+      path: '/pages/terms-and-conditions'
+      fullPath: '/pages/terms-and-conditions'
+      preLoaderRoute: typeof MainPagesTermsAndConditionsRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/pages/stockists': {
+      id: '/_main/pages/stockists'
+      path: '/pages/stockists'
+      fullPath: '/pages/stockists'
+      preLoaderRoute: typeof MainPagesStockistsRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/pages/our-story': {
+      id: '/_main/pages/our-story'
+      path: '/pages/our-story'
+      fullPath: '/pages/our-story'
+      preLoaderRoute: typeof MainPagesOurStoryRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/pages/faq': {
+      id: '/_main/pages/faq'
+      path: '/pages/faq'
+      fullPath: '/pages/faq'
+      preLoaderRoute: typeof MainPagesFaqRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/pages/customer-service': {
+      id: '/_main/pages/customer-service'
+      path: '/pages/customer-service'
+      fullPath: '/pages/customer-service'
+      preLoaderRoute: typeof MainPagesCustomerServiceRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/pages/contact': {
+      id: '/_main/pages/contact'
+      path: '/pages/contact'
+      fullPath: '/pages/contact'
+      preLoaderRoute: typeof MainPagesContactRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/pages/about-our-leather': {
+      id: '/_main/pages/about-our-leather'
+      path: '/pages/about-our-leather'
+      fullPath: '/pages/about-our-leather'
+      preLoaderRoute: typeof MainPagesAboutOurLeatherRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/collections/$collectionsName': {
       id: '/_main/collections/$collectionsName'
       path: '/collections/$collectionsName'
       fullPath: '/collections/$collectionsName'
       preLoaderRoute: typeof MainCollectionsCollectionsNameRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/blogs/press': {
+      id: '/_main/blogs/press'
+      path: '/blogs/press'
+      fullPath: '/blogs/press'
+      preLoaderRoute: typeof MainBlogsPressRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/blogs/lookbooks': {
+      id: '/_main/blogs/lookbooks'
+      path: '/blogs/lookbooks'
+      fullPath: '/blogs/lookbooks'
+      preLoaderRoute: typeof MainBlogsLookbooksRouteImport
       parentRoute: typeof MainRoute
     }
   }
@@ -170,14 +406,38 @@ const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 interface MainRouteChildren {
   MainAboutRoute: typeof MainAboutRoute
+  MainCartRoute: typeof MainCartRoute
   MainIndexRoute: typeof MainIndexRoute
+  MainBlogsLookbooksRoute: typeof MainBlogsLookbooksRoute
+  MainBlogsPressRoute: typeof MainBlogsPressRoute
   MainCollectionsCollectionsNameRoute: typeof MainCollectionsCollectionsNameRoute
+  MainPagesAboutOurLeatherRoute: typeof MainPagesAboutOurLeatherRoute
+  MainPagesContactRoute: typeof MainPagesContactRoute
+  MainPagesCustomerServiceRoute: typeof MainPagesCustomerServiceRoute
+  MainPagesFaqRoute: typeof MainPagesFaqRoute
+  MainPagesOurStoryRoute: typeof MainPagesOurStoryRoute
+  MainPagesStockistsRoute: typeof MainPagesStockistsRoute
+  MainPagesTermsAndConditionsRoute: typeof MainPagesTermsAndConditionsRoute
+  MainPagesTestimonialsRoute: typeof MainPagesTestimonialsRoute
+  MainPagesVisitUsRoute: typeof MainPagesVisitUsRoute
 }
 
 const MainRouteChildren: MainRouteChildren = {
   MainAboutRoute: MainAboutRoute,
+  MainCartRoute: MainCartRoute,
   MainIndexRoute: MainIndexRoute,
+  MainBlogsLookbooksRoute: MainBlogsLookbooksRoute,
+  MainBlogsPressRoute: MainBlogsPressRoute,
   MainCollectionsCollectionsNameRoute: MainCollectionsCollectionsNameRoute,
+  MainPagesAboutOurLeatherRoute: MainPagesAboutOurLeatherRoute,
+  MainPagesContactRoute: MainPagesContactRoute,
+  MainPagesCustomerServiceRoute: MainPagesCustomerServiceRoute,
+  MainPagesFaqRoute: MainPagesFaqRoute,
+  MainPagesOurStoryRoute: MainPagesOurStoryRoute,
+  MainPagesStockistsRoute: MainPagesStockistsRoute,
+  MainPagesTermsAndConditionsRoute: MainPagesTermsAndConditionsRoute,
+  MainPagesTestimonialsRoute: MainPagesTestimonialsRoute,
+  MainPagesVisitUsRoute: MainPagesVisitUsRoute,
 }
 
 const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)
