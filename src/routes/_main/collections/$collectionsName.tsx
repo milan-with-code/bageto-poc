@@ -1,3 +1,4 @@
+import CollectionsNav from '@/feature/collections/collections-nav'
 import MenCategories from '@/feature/collections/men-categories'
 import WomenCategories from '@/feature/collections/women-categories'
 import { createFileRoute } from '@tanstack/react-router'
@@ -22,6 +23,14 @@ function RouteComponent() {
         }
     }
 
-    return renderElement(collectionsName)
+    return (
+        <div>
+            <div className="sticky top-[84px] z-10 bg-white">
+                <CollectionsNav />
+            </div>
+
+            {renderElement(collectionsName)}
+        </div>
+    )
 }
 

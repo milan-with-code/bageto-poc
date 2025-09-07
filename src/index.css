@@ -153,3 +153,13 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.product-title {
+  margin-bottom: 0;
+  font-size: 0.75rem;
+  padding-top: 12px;
+}
+.product-price {
+  font-size: 0.6875rem;
+  color: #9b9b9b;
+}

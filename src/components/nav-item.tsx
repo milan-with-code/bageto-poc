@@ -9,9 +9,9 @@ interface NavItemProps {
 const NavItem = ({ label, submenu }: NavItemProps) => {
     return (
         <div className="relative group">
-            <button className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors hover:underline cursor-pointer">
+            <Link to="/collections/$collectionsName" params={{ collectionsName: label.toLocaleLowerCase() }} className="text-xs font-medium text-gray-900 hover:text-gray-700 tracking-wide transition-colors hover:underline cursor-pointer">
                 {label}
-            </button>
+            </Link>
 
             <div className="absolute left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-1 group-hover:translate-y-0">
                 <div className="bg-white rounded-md shadow-lg w-48">

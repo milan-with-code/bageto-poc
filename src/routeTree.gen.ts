@@ -28,6 +28,7 @@ import { Route as MainPagesAboutOurLeatherRouteImport } from './routes/_main/pag
 import { Route as MainCollectionsCollectionsNameRouteImport } from './routes/_main/collections/$collectionsName'
 import { Route as MainBlogsPressRouteImport } from './routes/_main/blogs/press'
 import { Route as MainBlogsLookbooksRouteImport } from './routes/_main/blogs/lookbooks'
+import { Route as MainCollectionsCollectionNameProductsProductSlugRouteImport } from './routes/_main/collections/$collectionName/products/$productSlug'
 
 const MainRoute = MainRouteImport.update({
   id: '/_main',
@@ -126,6 +127,12 @@ const MainBlogsLookbooksRoute = MainBlogsLookbooksRouteImport.update({
   path: '/blogs/lookbooks',
   getParentRoute: () => MainRoute,
 } as any)
+const MainCollectionsCollectionNameProductsProductSlugRoute =
+  MainCollectionsCollectionNameProductsProductSlugRouteImport.update({
+    id: '/collections/$collectionName/products/$productSlug',
+    path: '/collections/$collectionName/products/$productSlug',
+    getParentRoute: () => MainRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/login': typeof AuthLoginRoute
@@ -145,6 +152,7 @@ export interface FileRoutesByFullPath {
   '/pages/terms-and-conditions': typeof MainPagesTermsAndConditionsRoute
   '/pages/testimonials': typeof MainPagesTestimonialsRoute
   '/pages/visit-us': typeof MainPagesVisitUsRoute
+  '/collections/$collectionName/products/$productSlug': typeof MainCollectionsCollectionNameProductsProductSlugRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof AuthLoginRoute
@@ -164,6 +172,7 @@ export interface FileRoutesByTo {
   '/pages/terms-and-conditions': typeof MainPagesTermsAndConditionsRoute
   '/pages/testimonials': typeof MainPagesTestimonialsRoute
   '/pages/visit-us': typeof MainPagesVisitUsRoute
+  '/collections/$collectionName/products/$productSlug': typeof MainCollectionsCollectionNameProductsProductSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -186,6 +195,7 @@ export interface FileRoutesById {
   '/_main/pages/terms-and-conditions': typeof MainPagesTermsAndConditionsRoute
   '/_main/pages/testimonials': typeof MainPagesTestimonialsRoute
   '/_main/pages/visit-us': typeof MainPagesVisitUsRoute
+  '/_main/collections/$collectionName/products/$productSlug': typeof MainCollectionsCollectionNameProductsProductSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/pages/terms-and-conditions'
     | '/pages/testimonials'
     | '/pages/visit-us'
+    | '/collections/$collectionName/products/$productSlug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/login'
@@ -226,6 +237,7 @@ export interface FileRouteTypes {
     | '/pages/terms-and-conditions'
     | '/pages/testimonials'
     | '/pages/visit-us'
+    | '/collections/$collectionName/products/$productSlug'
   id:
     | '__root__'
     | '/_auth'
@@ -247,6 +259,7 @@ export interface FileRouteTypes {
     | '/_main/pages/terms-and-conditions'
     | '/_main/pages/testimonials'
     | '/_main/pages/visit-us'
+    | '/_main/collections/$collectionName/products/$productSlug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -389,6 +402,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainBlogsLookbooksRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/collections/$collectionName/products/$productSlug': {
+      id: '/_main/collections/$collectionName/products/$productSlug'
+      path: '/collections/$collectionName/products/$productSlug'
+      fullPath: '/collections/$collectionName/products/$productSlug'
+      preLoaderRoute: typeof MainCollectionsCollectionNameProductsProductSlugRouteImport
+      parentRoute: typeof MainRoute
+    }
   }
 }
 
@@ -420,6 +440,7 @@ interface MainRouteChildren {
   MainPagesTermsAndConditionsRoute: typeof MainPagesTermsAndConditionsRoute
   MainPagesTestimonialsRoute: typeof MainPagesTestimonialsRoute
   MainPagesVisitUsRoute: typeof MainPagesVisitUsRoute
+  MainCollectionsCollectionNameProductsProductSlugRoute: typeof MainCollectionsCollectionNameProductsProductSlugRoute
 }
 
 const MainRouteChildren: MainRouteChildren = {
@@ -438,6 +459,8 @@ const MainRouteChildren: MainRouteChildren = {
   MainPagesTermsAndConditionsRoute: MainPagesTermsAndConditionsRoute,
   MainPagesTestimonialsRoute: MainPagesTestimonialsRoute,
   MainPagesVisitUsRoute: MainPagesVisitUsRoute,
+  MainCollectionsCollectionNameProductsProductSlugRoute:
+    MainCollectionsCollectionNameProductsProductSlugRoute,
 }
 
 const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)
